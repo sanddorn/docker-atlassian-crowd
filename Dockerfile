@@ -11,6 +11,8 @@ ENV CROWD_INSTALL  /opt/atlassian/crowd
 EXPOSE 8080
 EXPOSE 8443
 
+VOLUME ${CROWD_DATA}
+
 RUN set -x \
     && apk --no-cache add curl bash \
     && mkdir -p ${CROWD_INSTALL} \
