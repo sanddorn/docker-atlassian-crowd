@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  prepare:
+    steps:
+      - checkout
+      - run: ./bin/prepare
+      - run: docker build .
+      
