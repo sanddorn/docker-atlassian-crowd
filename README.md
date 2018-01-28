@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/sanddorn/docker-atlassian-crowd/tree/master.svg?style=svg)](https://circleci.com/gh/sanddorn/docker-atlassian-crowd/tree/master)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/sanddorn/docker-atlassian-crowd/master.svg?label=CircleCI)](https://circleci.com/gh/sanddorn/docker-atlassian-crowd)
 
 # Atlassian Crowd in a Docker container
 
