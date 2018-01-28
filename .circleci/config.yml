@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Install JQ to container
           command: |
-            apk install jq
+            apt-get update && apt-get install jq
       - run:
           name: Prepare Bulild
           command: |
