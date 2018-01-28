@@ -1,4 +1,5 @@
 [![CircleCI Build Status](https://img.shields.io/circleci/project/sanddorn/docker-atlassian-crowd/master.svg?label=CircleCI)](https://circleci.com/gh/sanddorn/docker-atlassian-crowd)
+[![Open Issues](https://img.shields.io/github/issues/sanddorn/docker-atlassian-crowd.svg)](https://github.com/sanddorn/docker-atlassian-crowd/issues) [![Stars on GitHub](https://img.shields.io/github/stars/sanddorn/docker-atlassian-crowd.svg)](https://github.com/sanddorn/docker-atlassian-crowd/stargazers) [![Forks on GitHub](https://img.shields.io/github/forks/sanddorn/docker-atlassian-crowd.svg)](https://github.com/sanddorn/docker-atlassian-crowd/network) [![Stars on Docker Hub](https://img.shields.io/docker/stars/sanddorn/docker-atlassian-crowd.svg)](https://hub.docker.com/r/sanddorn/docker-atlassian-crowd/) [![Pulls on Docker Hub](https://img.shields.io/docker/pulls/sanddorn/docker-atlassian-crowd.svg)](https://hub.docker.com/r/sanddorn/docker-atlassian-crowd/)
 
 # Atlassian Crowd in a Docker container
 
