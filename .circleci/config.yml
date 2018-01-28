@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      image: ruby:2.3.3
+      - image: ruby:2.3.3
     steps:
       - checkout
       - setup_remote_docker
