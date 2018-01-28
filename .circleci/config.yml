@@ -1,9 +1,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - master
     machine:
       enabled: true
     steps:
@@ -25,9 +22,6 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
   test:
-    branches:
-      only:
-        - master
     machine:
       enabled: true
     steps:
@@ -45,6 +39,11 @@ jobs:
 workflows:
   version: 2
   build_and_test:
+    branches:
+      only:
+         - master
+         - /[0-9]+.[0-9]+.[0-9]+/
+         - /feature.*/
     jobs:
       - build
       - test
