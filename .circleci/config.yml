@@ -1,6 +1,11 @@
 version: 2
 jobs:
   build:
+    branches:
+      only:
+        - master
+        - /feature\/.*/
+        - /\d+\.\d+\.\d+/
     machine:
       enabled: true
     steps:
@@ -8,6 +13,11 @@ jobs:
       - run: ./bin/prepare
       - run: docker build .
   test:
+    branches:
+      only:
+        - master
+        - /feature\/.*/
+        - /\d+\.\d+\.\d+/
     machine:
       enabled: true
     steps:
