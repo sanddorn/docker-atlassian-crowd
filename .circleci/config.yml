@@ -57,3 +57,7 @@ jobs:
                               ${TEST_FILES}
       - store_test_results:
           path: /tmp/test-results
+      - run:
+          name: Create version-branch if needed.
+          command: |
+            ./bin/createBranchIfNeeded

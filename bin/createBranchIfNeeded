@@ -1,0 +1,57 @@
+# !/bin/bash
+
+# Prepare Git committer information
+git config user.email "nils.bokermann+automatedBuild@bermuda.de"
+git config user.name "Automated Updater"
+
+# Obtain the current version of Atlassian Crowd version defined by the
+# Dockerfile in this repository.
+VERSION=$(sed -nr 's/ENV CONF_VERSION[[:space:]]*(.+)/\1/p' Dockerfile)
+
+echo "Checking if there has been made any modifications"
+
+git diff --exit-code . > /dev/null 2>&1
+
+if [[ $? != 0 ]]; then
+	echo "Committing changes"
+
+	# Changes from prepare will be in Dockerfile. So it's enough to have the Dockerfile updated.
+	git add --all Dockerfile
+	git commit --message "Updated Atlassian Crowd master branch to latest version ${VERSION}"
+
+	# push changes made to current branch
+	git push origin master
+
+    echo "Checking if branch is already available?"
+
+    git fetch --all &> /dev/null
+    git show-branch "origin/${VERSION}" &> /dev/null
+
+    if [[ $? != 0 ]]; then
+        # Create a new Version-Branch
+    	echo "Creating new branch '${VERSION}'"
+
+    	git checkout --orphan "${VERSION}"
+
+        # To minimize confusion, README.md will only be in master branch. Therefore it is deleted here.
+    	git rm "README.md"
+
+    	# Perform initial commit with the current directory as is (ie. prepared for
+    	# the new version branch).
+    	echo "Committing changes"
+
+    	git add --all
+    	git commit --message "Created new Atlassian Crowd branch for version ${VERSION}"
+
+	    # Acutally push the new branch to the origin repository (GitHub) such that
+    	# the changes are published for the Docker Hub repository and everyone else.
+    	echo "Pushing new branch '${VERSION}'"
+
+    	git push "origin" "${VERSION}" || exit 255
+
+    	# Notify the new branch has been deployed.
+    	echo "Deployed new version to new branch '${VERSION}'"
+
+    fi
+
+fi
