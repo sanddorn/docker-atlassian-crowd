@@ -1,8 +1,9 @@
 version: 2
 jobs:
   prepare:
+    machine:
+      enabled: true
     steps:
       - checkout
       - run: ./bin/prepare
       - run: docker build .
-      
