@@ -22,4 +22,6 @@ RUN set -x \
 COPY config/crowd-init.properties ${CROWD_INSTALL}/crowd-webapp/WEB-INF/classes
 COPY config/server.xml ${CROWD_INSTALL}/apache-tomcat/conf
 
+WORKDIR /var/atlassian/crowd
+
 CMD ${CROWD_INSTALL}/start_crowd.sh -fg
