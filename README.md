@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/sanddorn/docker-atlassian-crowd/tree/master.svg?style=svg)](https://circleci.com/gh/sanddorn/docker-atlassian-crowd/tree/master)
+
 # Atlassian Crowd in a Docker container
 
 This is a containerized installation of Atlassian Crowd with Docker. The aim of this image is to keep the installation as straight forward as possible, but with a few Docker related twists. You can get started by clicking the appropriate link below and reading the documentation.
