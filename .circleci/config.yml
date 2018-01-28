@@ -4,8 +4,6 @@ jobs:
     branches:
       only:
         - master
-#        - /feature\/.*/
-#        - /\d+\.\d+\.\d+/
     machine:
       enabled: true
     steps:
@@ -32,8 +30,6 @@ jobs:
     branches:
       only:
         - master
-#       - /feature\/.*/
-#        - /\d+\.\d+\.\d+/
     machine:
       enabled: true
     steps:
