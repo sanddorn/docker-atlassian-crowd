@@ -61,3 +61,17 @@ jobs:
           name: Create version-branch if needed.
           command: |
             ./bin/createBranchIfNeeded
+
+
+workflows:
+  version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "1 27 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
