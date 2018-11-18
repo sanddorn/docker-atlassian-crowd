@@ -22,6 +22,7 @@ if [[ $? != 0 ]]; then
 	# push changes made to current branch
 	git push origin master
 
+
     echo "Checking if branch is already available?"
 
     git fetch --all &> /dev/null
