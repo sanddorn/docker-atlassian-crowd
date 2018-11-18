@@ -1,7 +1,5 @@
 # !/bin/bash
 
-set -x
-
 # Prepare Git committer information
 git config user.email "nils.bokermann+automatedBuild@bermuda.de"
 git config user.name "Automated Updater"
@@ -12,7 +10,7 @@ VERSION=$(sed -nr 's/ENV CROWD_VERSION[[:space:]]*(.+)/\1/p' Dockerfile)
 
 echo "Checking if there has been made any modifications: $VERSION"
 
-git diff --exit-code . # > /dev/null 2>&1
+git diff --exit-code . > /dev/null 2>&1
 
 if [[ $? != 0 ]]; then
 	echo "Committing changes"
@@ -37,6 +35,8 @@ if [[ $? != 0 ]]; then
 
         # To minimize confusion, README.md will only be in master branch. Therefore it is deleted here.
     	git rm "README.md"
+    	# Delete vendor directory
+    	rm -rf vendor
 
     	# Perform initial commit with the current directory as is (ie. prepared for
     	# the new version branch).
