@@ -1,11 +1,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - master
-        - /[0-9]+.[0-9]+.[0-9]+/
-        - /feature.*/
     docker:
       - image: ruby:2.3.3
     steps:
@@ -77,15 +72,3 @@ workflows:
             - master
     jobs:
     - build
-#workflows:
-#  version: 2
-#  nightly:
-#    triggers:
-#      - schedule:
-#          cron: "1 2 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - master
-#    jobs:
-#      - build
