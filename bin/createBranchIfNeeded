@@ -1,5 +1,7 @@
 # !/bin/bash
 
+set -x
+
 # Prepare Git committer information
 git config user.email "nils.bokermann+automatedBuild@bermuda.de"
 git config user.name "Automated Updater"
@@ -8,9 +10,9 @@ git config user.name "Automated Updater"
 # Dockerfile in this repository.
 VERSION=$(sed -nr 's/ENV CONF_VERSION[[:space:]]*(.+)/\1/p' Dockerfile)
 
-echo "Checking if there has been made any modifications"
+echo "Checking if there has been made any modifications: $VERSION"
 
-git diff --exit-code . > /dev/null 2>&1
+git diff --exit-code . # > /dev/null 2>&1
 
 if [[ $? != 0 ]]; then
 	echo "Committing changes"
