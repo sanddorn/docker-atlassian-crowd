@@ -8,7 +8,7 @@ git config user.name "Automated Updater"
 
 # Obtain the current version of Atlassian Crowd version defined by the
 # Dockerfile in this repository.
-VERSION=$(sed -nr 's/ENV CONF_VERSION[[:space:]]*(.+)/\1/p' Dockerfile)
+VERSION=$(sed -nr 's/ENV CROWD_VERSION[[:space:]]*(.+)/\1/p' Dockerfile)
 
 echo "Checking if there has been made any modifications: $VERSION"
 
