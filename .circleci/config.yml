@@ -26,23 +26,10 @@ jobs:
           name: Build Image
           command: |
             docker build .
-#      - restore_cache:
-#          keys:
-#            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-#            # fallback to using the latest cache if no exact match is found
-#            - v1-dependencies-
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-#      - save_cache:
-#          paths:
-#            - ./vendor/bundle
-#          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-  test:
-    docker:
-    - image: ruby:2.3.3
-    steps:
       - run:
           name: run tests
           command: |
@@ -65,7 +52,6 @@ workflows:
   commit:
     jobs:
     - create_image
-    - test
   nightly:
     triggers:
     - schedule:
@@ -76,4 +62,3 @@ workflows:
             - master
     jobs:
     - create_image
-    - test
