@@ -58,8 +58,8 @@ workflows:
         cron: "0,15,30,45 * * * *"
         filters:
           branches:
-            ignore:
-              - /feature.*/
+            ignore: /feature.*/
+
 #            only:
 #            - master
     jobs:
