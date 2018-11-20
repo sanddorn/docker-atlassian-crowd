@@ -16,7 +16,7 @@ if [[ $? != 0 ]]; then
 	echo "Committing changes"
 
 	# Changes from prepare will be in Dockerfile. So it's enough to have the Dockerfile updated.
-	git add --all Dockerfile
+	git add Dockerfile
 	git commit --message "Updated Atlassian Crowd master branch to latest version ${VERSION}"
 
 	# push changes made to current branch
@@ -32,7 +32,7 @@ if [[ $? != 0 ]]; then
         # Create a new Version-Branch
     	echo "Creating new branch '${VERSION}'"
 
-    	git checkout --orphan "${VERSION}"
+    	git branch "${VERSION}"
 
         # To minimize confusion, README.md will only be in master branch. Therefore it is deleted here.
     	git rm "README.md"
@@ -43,7 +43,6 @@ if [[ $? != 0 ]]; then
     	# the new version branch).
     	echo "Committing changes"
 
-    	git add --all
     	git commit --message "Created new Atlassian Crowd branch for version ${VERSION}"
 
 	    # Acutally push the new branch to the origin repository (GitHub) such that
