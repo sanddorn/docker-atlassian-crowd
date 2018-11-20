@@ -55,7 +55,7 @@ workflows:
   nightly:
     triggers:
     - schedule:
-        cron: "0,15,30,45 * * * *"
+        cron: "7 3 * * *"
         filters:
           branches:
             ignore: /feature.*/
