@@ -61,14 +61,14 @@ workflows:
   version: 2
   commit:
     jobs:
-    - build
+    - create_image
   nightly:
     triggers:
     - schedule:
         cron: "0 0 * * *"
         filters:
           branches:
-            only:
+            ignore: /feature.*/
             - master
     jobs:
-    - build
+    - create_image
