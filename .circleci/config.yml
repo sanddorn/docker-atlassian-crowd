@@ -58,9 +58,6 @@ workflows:
         cron: "7 3 * * *"
         filters:
           branches:
-            ignore: /feature.*/
-
-#            only:
-#            - master
+            only: /master.*/
     jobs:
     - create_image
