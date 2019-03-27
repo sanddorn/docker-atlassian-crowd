@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   create_image:
     docker:
-      - image: ruby:2.3.3
+      - image: ruby:2-stretch
     steps:
       - checkout
       - setup_remote_docker
