@@ -2,7 +2,7 @@ version: 2
 jobs:
   create_image:
     docker:
-      - image: ruby:2.3.3
+      - image: ruby:2-stretch
     steps:
       - checkout
       - setup_remote_docker
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Install JQ to container
           command: |
-            apt-get update && apt-get install jq
+            apt-get update && apt-get install -y jq
       - run:
           name: Prepare Bulild
           command: |
