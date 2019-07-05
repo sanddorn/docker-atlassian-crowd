@@ -17,7 +17,7 @@ RUN set -x \
     && apk --no-cache add curl bash \
     && mkdir -p ${CROWD_INSTALL} \
     && mkdir -p ${CROWD_DATA} \
-    && curl -Ls https://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-${CROWD_VERSION}.tar.gz | tar -xz --directory "${CROWD_INSTALL}" --strip-components=1 --no-same-owner
+    && curl -Ls https://product-downloads.atlassian.com/software/crowd/downloads/atlassian-crowd-${CROWD_VERSION}.tar.gz | tar -xz --directory "${CROWD_INSTALL}" --strip-components=1 --no-same-owner
 
 COPY config/crowd-init.properties ${CROWD_INSTALL}/crowd-webapp/WEB-INF/classes
 COPY config/server.xml ${CROWD_INSTALL}/apache-tomcat/conf
