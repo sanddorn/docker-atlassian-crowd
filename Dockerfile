@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 MAINTAINER Nils Bokermann <nils.bokermann@bermuda.de>
 
-ENV CROWD_VERSION 4.2.2
+ENV CROWD_VERSION 4.2.3
 # Setup useful environment variables
 ENV CROWD_DATA     /var/atlassian/crowd
 # Must match entry in crowd-init.properties
